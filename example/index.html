@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>markdown样式一览</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/css/bootstrap-markdown.min.css">
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+        </style>
+	</head>
+	<body>
+
+		<div class="container">
+			<h1 class="page-head">markdown样式一览</h1>
+			<hr>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<textarea id="markdownText" name="src" rows="10" style="height:80%;">
+### 1．表现
+---
+牙体外形和结构有不同程度的破坏，造成==牙齿的形态、咬合和邻阶关系==的异常
+![微笑图](https://upload.ibesteeth.com/pro/club/img/14738359915100e992375.jpg-c.thb694x347)
+
+### 2.常见病因
+---
+#### 2.1 蛀牙
+细菌作用导致牙体形成龋洞、变色、脱矿。 
+::: note 注释放在这里注释放在这里注释放在这里注释放在这里 
+:::
+
+#### 2.2 牙外伤
+受到意外撞击或咬硬物引起牙隐裂，牙折
+1. 受到意外撞击或咬硬物引起牙隐裂，牙折
+1. 受到意外撞击或咬硬物引起牙隐裂，牙折
+1. 受到意外撞击或咬硬物引起牙隐裂，牙折
+1. 受到意外撞击或咬硬物引起牙隐裂，牙折
+
+#### 2.4 磨损
+常由于++不良习惯++，夜间[磨牙](www.ibesteeth.com)等引起
+::: img ![居中的竖图](https://upload.ibesteeth.com/club_admin/edit_post/671/upload020440810177726254/14882540494060dd5775b.jpg-c.thb)
+:::
+
+*[楔状缺损]: 缩写（楔状缺损）的全称
+*[W3C]: World Wide Web Consortium
+#### 2.5 W3C 楔状缺损
+牙颈部**非龋性**缺损
+::: wireframe 受到酸的作用使牙齿脱钙，形成褐色斑并出现缺损受到酸的作用使牙齿脱钙，形成褐色斑并出现缺损受到酸的作用使牙齿脱钙，形成褐色斑并出现缺损
+:::
+
+### 3 治疗方式
+---
+#### 3.1 牙齿缺损面积小——充填法：[B68 补牙](www.ibesteeth.com)
+::: intent <
+##### 部分冠
+覆盖于部分牙冠**表面**的修复
+:::
+
+::: intent <
+##### 贴面
+使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面。
+:::
+
+::: intent <
+##### 贴面345
+使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面，使用修复材料直接或间接粘接覆盖于牙齿表面。
+:::
+
+::: blockquote <
+使用修复材料直接或间接粘接覆盖于牙齿表面使用修复材料直接或间接粘接覆盖于牙齿表面
+:::
+
+##### 贴面
+使用修复材料直接或间接粘接覆盖于牙齿表面使用修复材料直接或间接粘接覆盖于牙齿表面
+##### 贴面
+使用修复材料直接或间接粘接覆盖于牙齿表面使用修复材料直接或间接粘接覆盖于牙齿表面
+					</textarea>
+				</div>
+				<div class="col-md-6 bg-default">
+					<div id="htmlText"></div>
+					<!-- <textarea id="htmlText" name="content" rows="10"></textarea> -->
+				</div>
+			</div>	
+		</div>
+		
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+		<!-- 👇👇👇 markdown-it -->
+		<script src='../dist/markdownit.js'></script>
+
+
+		<!-- 👇👇👇 bootstrap-markdown -->
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/js/bootstrap-markdown.min.js'></script>
+        <script src="./markdown-editor.js"></script>
+
+	</body>
+</html>
