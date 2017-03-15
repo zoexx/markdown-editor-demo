@@ -1,3 +1,5 @@
+let webpack = require('webpack');
+ 
  module.exports = {
      entry: './src/markdownit.js',
      output: {
@@ -22,5 +24,14 @@
                 loader: 'json-loader'
              }
          ]
-     }
+     } ,
+
+     plugins:[
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+     ]
+
  };

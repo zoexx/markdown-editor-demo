@@ -29,18 +29,41 @@ $.fn.markdown.messages.zh = {
 };
 }(jQuery));
 
-var $markdownText = $('#markdownText') ,
-    $htmlText = $('#htmlText') ;
+var bootstrapMarkdown = {
+    getEditor : function ( source , renderTar , opt ){
+        var $source = $(source) ;
+        var $renderTar = $(renderTar) ;
+        var config = this.getConfig( $renderTar , opt );
 
-// 初始化markdown编辑器
-// 不可更改的情况请直接给 textarea 加上 disabled 属性
-var bootstrapMarkdown = $markdownText.markdown({
+        var editor = $source.markdown( config );
+        // 让容器等高，预览跟随编辑器滚动
+        $renderTar.css( {
+            'height': $source.outerHeight() + 'px' ,
+            'overflow' : 'auto' , 
+            'margin-top' : $source.siblings('.md-header').outerHeight() + 'px' ,
+        });
+
+        $source.scroll(function(e){
+            $renderTar.scrollTop( e.currentTarget.scrollTop );
+        })
+
+
+        // 初始化
+        if ( $source.val() ) {
+            $renderTar.html( markdownit.render( $source.val() ) ); 
+            markdownit.inlineStyles( $renderTar[0] ) ;       
+        }
+
+        return editor ;
+    } ,
+    getConfig : function( $htmlText , opt  ){
+        var config = {
             resize : false ,
             language : 'zh' ,
             hiddenButtons : ['cmdPreview','cmdImage','cmdQuote'] ,
             onChange : function( e ) {
                 $htmlText.html( markdownit.render( e.getContent() ) );
-                markdownit.inlineStyles( $htmlText[0] )	;
+                markdownit.inlineStyles( $htmlText[0] ) ;
             } ,
             additionalButtons : [
             [{
@@ -59,7 +82,7 @@ var bootstrapMarkdown = $markdownText.markdown({
                             cursor,
                             selected = e.getSelection() ;
                             
-                        frontText = '::: note ' ;
+                        frontText = '::: note' ;
                         contentText = '写注释' ;
                         endText     = '\n:::' ;
 
@@ -134,7 +157,7 @@ var bootstrapMarkdown = $markdownText.markdown({
                     callback: function(e){
                         // 给一个弹框写图片链接
                         var imgsrc = prompt("请输入图片地址","https://");
-                        if ( imgsrc!= null && imgsrc !="" ){				              	
+                        if ( imgsrc!= null && imgsrc !="" ){                                
                             // Replace selection with some drinks
                             var chunk,
                                 frontText , 
@@ -187,26 +210,7 @@ var bootstrapMarkdown = $markdownText.markdown({
                     }]
             }]
             ]
-        })
-
-
-// 让容器等高，预览跟随编辑器滚动
-$htmlText.css( {
-    'height': $markdownText.outerHeight() + 'px' ,
-    'overflow' : 'auto' , 
-    'margin-top' : $markdownText.siblings('.md-header').outerHeight() + 'px' ,
-});
-
-$markdownText.scroll(function(e){
-    $htmlText.scrollTop( e.currentTarget.scrollTop );
-})
-
-
-// 初始化
-if ( $markdownText.val() ) {
-    $htmlText.html( markdownit.render( $markdownText.val() ) );	
-    markdownit.inlineStyles( $htmlText[0] )	;		
+        } ;
+        return $.extend( config , opt , false );
+    }
 }
-
-
-
