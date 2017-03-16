@@ -16,12 +16,15 @@ let webpack = require('webpack');
              {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: 'raw-loader!inline-style-loader!autoprefixer-loader?{browsers: ["last 2 version"]}'
+                loader: 'raw-loader!inline-style-loader!postcss-loader'
              } ,
              {
                 test: /\.json$/,
                 exclude: /node_modules/,
                 loader: 'json-loader'
+             } ,
+             {
+                test: /\.(png|jpg|gif|woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000' 
              }
          ]
      } ,
