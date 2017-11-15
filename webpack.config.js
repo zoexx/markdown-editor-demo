@@ -1,9 +1,9 @@
 let webpack = require('webpack');
  
  module.exports = {
-     entry: './src/markdownit.js',
+     entry: __dirname + '/src/markdownit.js',
      output: {
-         path: './dist',
+         path: __dirname +'/dist',
          filename: 'markdownit.js'
      } ,
      module: {
